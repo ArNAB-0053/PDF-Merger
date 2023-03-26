@@ -6,10 +6,16 @@ import PyPDF2 as pdf
 n = int(input('Enter number of pdf file you want to merge: '))
 
 pdfFilies = []
-for i in range (0, n):
-    file = input("Enter pdf file name: ")
-    pdfFilies.append(f"{file}.pdf")
-print(pdfFilies)
+
+try: 
+    for i in range (0, n):
+        file = input("Enter pdf file name: ")
+        pdfFilies.append(f"{file}.pdf")
+    print(pdfFilies)
+
+except Exception as e:
+    print("An error occure: ",e)
+
 
 merger = pdf.PdfMerger()
 for filename in pdfFilies:
